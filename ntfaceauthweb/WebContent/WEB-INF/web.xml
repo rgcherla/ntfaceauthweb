@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <display-name>Archetype Created Web Application</display-name>
+  
+  	 <context-param>
+		<param-name>bucket</param-name>
+		<param-value>insurance-customers</param-value>
+	</context-param>
+
+  	 <context-param>
+		<param-name>album</param-name>
+		<param-value>customers</param-value>
+	</context-param>
+	
+  	 <context-param>
+		<param-name>collectionId</param-name>
+		<param-value>InsuranceCustomers</param-value>
+	</context-param>
+
+  	 <context-param>
+		<param-name>matchThreshold</param-name>
+		<param-value>80</param-value>
+	</context-param>
+			 
+	 <listener>
+	 	<listener-class>listener.AWSContextHandler</listener-class>
+	 </listener>
+  	
+	<servlet>
+		<servlet-name>AWSRekognitionProcessingServlet</servlet-name>
+		<servlet-class>servlet.AWSRekognitionProcessingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AWSRekognitionProcessingServlet</servlet-name>
+		<url-pattern>/AWSRekognitionProcessingServlet</url-pattern>
+	</servlet-mapping>
+
+  	<welcome-file-list>
+  		<welcome-file>faceAuth.jsp</welcome-file>
+  	</welcome-file-list>
+  	
+</web-app>
